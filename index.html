@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無人機方向訓練器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="score-board">得分: <span id="score">0</span></div>
+        <div id="game-area">
+            <div id="drone"></div>
+            <div id="target"></div>
+        </div>
+        <div id="controls-hint">
+            <p>使用方向鍵操控無人機</p>
+            <p id="hint-text"></p>
+            <p>將無人機飛向寶石!</p>
+        </div>
+    </div>
+
+    <div id="start-screen" class="modal">
+        <div class="modal-content">
+            <h1>無人機飛行訓練</h1>
+            <p>掌握你的方向感!</p>
+            <p>無人機會朝隨機方向生成。</p>
+            <p>使用相對控制飛向目標。</p>
+            <p>方向錯誤 = 失敗!</p>
+            <button id="start-btn">開始訓練</button>
+        </div>
+    </div>
+
+    <div id="game-over-screen" class="modal hidden">
+        <div class="modal-content">
+            <h1>失敗!</h1>
+            <p id="failure-reason">你移動到了錯誤的方向或撞到了邊界。</p>
+            <p id="hint-message"></p>
+            <p>得分: <span id="final-score">0</span></p>
+            <button id="restart-btn">重新嘗試</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

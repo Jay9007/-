@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    background-color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle at center, #001f3f 0%, #000 100%);
+    border: 6px solid #444;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);
+    overflow: hidden;
+}
+
+#score-board {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 36px;
+    font-weight: bold;
+    z-index: 10;
+    text-shadow: 3px 3px 6px #000;
+}
+
+#controls-hint {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 21px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+#hint-text {
+    color: #ffcc00;
+    font-weight: bold;
+    min-height: 1.5em;
+}
+
+#drone {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: top 0.2s ease, left 0.2s ease;
+    z-index: 5;
+    /* Center the pivot for easier mental model, though visual pivot is center of div */
+    transform: translate(-50%, -50%);
+}
+
+/* Individual drone orientations using separate images */
+.drone-back {
+    background-image: url('drone_back.png');
+}
+
+.drone-front {
+    background-image: url('drone_front.png');
+}
+
+.drone-left {
+    background-image: url('drone_right.png');
+}
+
+.drone-right {
+    background-image: url('drone_left.png');
+}
+
+
+#target {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #ffd700;
+    transform: translate(-50%, -50%);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #555;
+    max-width: 400px;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #0056b3;
+}
